@@ -1,0 +1,18 @@
+{
+  "name": "convertize-icons",
+  "version": "1.0.0",
+  "description": "Biblioteca de ícones Convertize: SVGs e scripts prontos para CDN (funcionam em artifacts do claude.ai).",
+  "license": "MIT",
+  "author": "Convertize",
+  "repository": { "type": "git", "url": "git+https://github.com/izaqueotaviano/icons.git" },
+  "homepage": "https://github.com/izaqueotaviano/icons#readme",
+  "keywords": ["icons", "svg", "convertize", "design-system"],
+  "main": "dist/core.js",
+  "jsdelivr": "dist/core.js",
+  "unpkg": "dist/core.js",
+  "files": ["svg", "dist", "icons.json", "ICONS.md", "README.md"],
+  "scripts": {
+    "build": "node scripts/build.js",
+    "prepublishOnly": "node scripts/build.js"
+  }
+}

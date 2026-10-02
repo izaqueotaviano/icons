@@ -1,0 +1,23 @@
+name: Publicar no npm
+# Publica convertize-icons quando você cria uma tag de versão (ex.: v1.0.0).
+# Precisa do segredo NPM_TOKEN em Settings > Secrets and variables > Actions.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+      - run: npm run build
+      - run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
